@@ -1,0 +1,114 @@
+@mixin reset {
+  html {
+    font-size: 16px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato';
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+// Backgrounds
+
+@mixin center-bg {
+  background-size: cover;
+  background-position: center;
+}
+
+// Hovers
+
+@mixin main-hover {
+  transition: 0.3s;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+@mixin card-hover {
+  .job-card-title,
+  .job-card-cover {
+    opacity: 0;
+
+    @include mobile {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    .job-card-title,
+    .job-card-cover,
+    .job-card-description {
+      opacity: 1;
+    }
+  }
+}
+
+// Titles
+
+@mixin title-text-shadow {
+  text-shadow: 3px 2px $black;
+}
+
+@mixin section-title {
+  font-size: 3rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+// Buttons
+
+.btn {
+  padding: 0.6rem 1rem;
+  text-transform: uppercase;
+  transition: 0.3s;
+  color: $light-color;
+
+  border: 1px solid $light-color;
+  border-radius: 5px;
+
+  &:hover {
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+
+  &-primary {
+    background-color: $primary-color;
+    border-color: $primary-color;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &-rounded {
+    margin-top: 1rem;
+    border-radius: 2rem;
+    padding: 1rem 1.5rem;
+  }
+}
+
+// Mobile
+
+@mixin mobile {
+  @media (max-width: 425px) {
+    @content;
+  }
+}
+
+@mixin card-mobile {
+  width: 100%;
+  height: 200px;
+  margin: 0 0 2rem 0;
+}
